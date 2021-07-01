@@ -2,6 +2,8 @@
 open the setting file in microdomain and change the djoser google redirect link and facebook redirect link to your application
 ## front-end
 ```
+cp .env.sample .env
+npm install
 npm run build
 ```
 
