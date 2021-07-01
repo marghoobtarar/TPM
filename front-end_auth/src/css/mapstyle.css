@@ -1,0 +1,72 @@
+/* .gm-style .gm-style-iw-c {
+    padding-right: 10px !important;
+     padding-bottom: 0px !important;
+     max-width: 500px !important;
+     max-height: 326px !important;
+     min-width: 220px !important;
+     min-height: 220px;
+     position: absolute;
+     box-sizing: border-box;
+     overflow: hidden;
+     top: 0;
+     left: 0;
+     transform: translate(-50%,-100%);
+     background-color: #ffff;
+     border-radius: 4px;
+     box-shadow: 0 2px 7px 1px rgba(0,0,0,0.3);
+ }
+ .image_map{
+     max-width: 220px;
+     min-width: 220px;
+     max-height: 120px;
+     margin-left: -12px;
+     margin-top: -12px;
+     position: absolute;
+ }
+
+ .marker_button{
+     position: absolute;
+     min-width: 220px;
+     min-height: 33px;
+     margin-top: 178px;
+     margin-left: -12px;
+     border: 0px;
+     background-color:#042f54;
+     color:#ffff;
+     cursor: pointer;
+ }
+
+ .data{
+     position: absolute;
+     margin-top: 120px;
+     font-weight: 700;
+     color: darkgray;
+ }
+ .budget{
+     margin-left: 0px;
+     display: inline-block;
+ }
+ .beds{
+     margin-left: 60px;
+     display: inline-block;
+
+ }
+ .baths{
+    margin-left: 4px;
+    display: inline-block;
+
+}
+
+@media screen and (min-width: 480px) {
+    body {
+      background-color: lightgreen;
+    }
+  }
+.map_div{
+    width: 100%;
+    height: 1480px;
+    display: flex
+}
+
+
+  */
