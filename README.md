@@ -8,7 +8,7 @@ npm run build
 ```
 
 ## login error modicication
-copy given rest_framework_simplejwt folder in your environment folder
+copy given replace_library -> rest_framework_simplejwt folder in your environment folder
 
 place these code in file (rest_framework_simplejwt.views.py) line#25 post function
 ## modify the email templates
