@@ -22,8 +22,6 @@ move to the djoser libray and open template folder all the email templates are a
 ## backend
 ```
 pyhton manage.py makemigrations account user_app admin_app
-python manage.py migrate
-
 ```
 
 ## Run Docker
