@@ -1,10 +1,16 @@
 # Django-React-Authentication
+## First Time Setup
 open the setting file in microdomain and change the djoser google redirect link and facebook redirect link to your application
 ## front-end
 ```
 cp .env.sample .env
-npm install
-npm run build
+
+```
+## install backend dependencies
+```
+
+virtualenv env
+pip install -r requirements.txt
 ```
 
 ## login error modicication
@@ -16,11 +22,16 @@ move to the djoser libray and open template folder all the email templates are a
 
 ## backend
 ```
+pyhton manage.py makemigrations account user_app admin_app
 python manage.py migrate
-python manage.py runserver
+
+```
+
+## Run Docker
+
+```
+docker-compose up
 
 ```
 
 
-## server url
-open link http://localhost:8000 to run the server 
