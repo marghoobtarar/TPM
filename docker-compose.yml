@@ -9,17 +9,20 @@ services:
 #       - POSTGRES_DB=postgres
 #       - POSTGRES_USER=postgres
 #       - POSTGRES_PASSWORD=postgres
-    # backend:
-    #     build: ./backend
-    #     command: ./backend/manage.py runserver 0.0.0.0:8000
-    #     volumes:
-    #     - .:/code
-    #     ports:
-    #     - "8000:8000"
+    backend:
+        build: ./backend
+        command: ./backend/manage.py runserver 0.0.0.0:8000
+        volumes:
+        - .:/code
+        ports:
+        - "8000:8000"
         # depends_on:
         #   - db
         # ********************** run the front-end ***************
     frontend:
+        environment:
+            - REACT_APP_API_DEVELOPMENT = 'http://localhost:8000'
+            - REACT_APP_API_PRODUCTION = NONE
         build: ./frontend
         volumes:
             - ./frontend:/code
@@ -28,6 +31,6 @@ services:
             - "3000:3000"
         environment:
             - NODE_ENV=development
-        # depends_on:
-        #     - backend
+        depends_on:
+            - backend
         command: npm start
