@@ -31,4 +31,11 @@ docker-compose up
 
 ```
 
+#SNACKS
+on changing the models you need to run these commands
+```
+pyhton manage.py makemigrations <app_name>
+python manage.py migrate
+
+```
 
