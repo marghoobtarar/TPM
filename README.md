@@ -16,7 +16,6 @@ pip install -r requirements.txt
 ## login error modicication
 copy given replace_library -> rest_framework_simplejwt folder in your environment folder
 
-place these code in file (rest_framework_simplejwt.views.py) line#25 post function
 ## modify the email templates
 move to the djoser libray and open template folder all the email templates are available there.
 
