@@ -13,16 +13,21 @@ services:
         build: ./backend
         command: ./backend/manage.py runserver 0.0.0.0:8000
         volumes:
-        - .:/code
+            - .:/code
         ports:
         - "8000:8000"
-        # depends_on:
-        #   - db
+        depends_on:
+          - migration
         # ********************** run the front-end ***************
+    migration:
+        build: ./backend
+        image: code
+        command: ./backend/manage.py migrate
+        volumes:
+            - .:/code
+       
     frontend:
-        environment:
-            - REACT_APP_API_DEVELOPMENT = 'http://localhost:8000'
-            - REACT_APP_API_PRODUCTION = NONE
+        
         build: ./frontend
         volumes:
             - ./frontend:/code
