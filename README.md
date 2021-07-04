@@ -1,4 +1,4 @@
-# Django-React-Authentication
+# TPM
 ## First Time Setup
 open the setting file in microdomain and change the djoser google redirect link and facebook redirect link to your application
 ## front-end
