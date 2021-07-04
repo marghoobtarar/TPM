@@ -134,15 +134,15 @@ class ManageFaqs(APIView):
             return Response({'message': 'delete data'}, status=status.HTTP_200_OK)
 class Landingpagedata(APIView):
     def post(self, request):
-        serailizer = landingPAGE(data=request.data)
+        serailizer = landingPAGESerializer(data=request.data)
         try:
             if serailizer.is_valid():
                 serailizer.save()
             else:
-                raise Exception("errors")
+                raise Exception(serailizer.errors )
 
         except Exception as e:
-                return Response({'message':serailizer.errors },
+                return Response({'message': str(e) },
                                    status=status.HTTP_404_NOT_FOUND)  
         
         else:
@@ -150,8 +150,8 @@ class Landingpagedata(APIView):
     
     def get(self, request):
         try:
-            faqs = landingPAGE.objects.all()
-            serailizer = landingPAGESerializer(faqs, many=True)
+            dataa = landingPAGE.objects.all()
+            serailizer = landingPAGESerializer(dataa, many=True)
             if serailizer:
                 pass
             else:
@@ -160,3 +160,45 @@ class Landingpagedata(APIView):
             return Response({'error message': str(e)}, status=status.HTTP_404_NOT_FOUND)
         else:
             return Response({'Landinfg page data':serailizer.data}, status=status.HTTP_200_OK)
+
+class ManageLandingpagedata(APIView):
+    def get(self, request, pk):
+        try:
+            dataa = landingPAGE.objects.get(id=pk)
+            serailizer = landingPAGESerializer(dataa)
+            if serailizer:
+                pass
+            else:
+                raise Exception('error')
+        except Exception as e:
+            return Response({'error message': str(e)}, 
+                            status=status.HTTP_404_NOT_FOUND)
+        else:
+            return Response({'message': 'Landing page data', 'data': serailizer.data},
+                            status=status.HTTP_200_OK)
+
+
+    def put(self, request, pk):
+        try:
+            dataa = landingPAGE.objects.get(pk=pk)
+            serailizer = landingPAGESerializer(
+                data=request.data, instance=dataa)
+            if serailizer.is_valid():
+                serailizer.save()
+            else:
+                raise Exception(serailizer._errors)
+        except Exception as e:
+            return Response({'error message': str(e)},
+                             status=status.HTTP_404_NOT_FOUND)
+        else:
+            return Response({'message': 'update faqs data', 'data': serailizer.data},
+                            status=status.HTTP_200_OK)
+
+    def delete(self, request, pk):
+        try:
+            dataa = landingPAGE.objects.get(pk=pk)
+            dataa.delete()
+        except Exception as e:
+            return Response({'message': str(e)}, status=status.HTTP_404_NOT_FOUND)
+        else:
+            return Response({'message': 'delete data'}, status=status.HTTP_200_OK)
