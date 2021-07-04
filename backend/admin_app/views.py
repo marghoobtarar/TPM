@@ -3,12 +3,12 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from user_app.serializers import ContactusSerializer, FaqsSerializer, landingPAGESerializer
 from user_app.models import Contact_us, FAQs, landingPAGE
-from rest_framework import status
+from rest_framework import status, generics
 from rest_framework.permissions import IsAdminUser
 
 
-
 class Contact(APIView):
+    
     permission_classes = (IsAdminUser,) 
     def get(self, request):
         try:
@@ -132,9 +132,13 @@ class ManageFaqs(APIView):
             return Response({'message': str(e)}, status=status.HTTP_404_NOT_FOUND)
         else:
             return Response({'message': 'delete data'}, status=status.HTTP_200_OK)
-class Landingpagedata(APIView):
-    def post(self, request):
-        serailizer = landingPAGESerializer(data=request.data)
+
+class Landingpagedata(generics.GenericAPIView):
+    serializer_class = landingPAGESerializer
+    permission_classes = (IsAdminUser,) 
+
+    def post(self, request , format=None):
+        serailizer = landingPAGE(data=request.data)
         try:
             if serailizer.is_valid():
                 serailizer.save()

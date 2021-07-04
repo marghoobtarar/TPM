@@ -77,7 +77,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'microdomains.urls'
-
+SWAGGER_SETTINGS = {
+'JSON_EDITOR': True,
+}
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -170,6 +172,20 @@ REST_FRAMEWORK = {
 #     ],
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    
+    # 'DEFAULT_FILTER_BACKENDS': (
+    #     'rest_framework.filters.SearchFilter',
+    #     'rest_framework.filters.OrderingFilter',
+    # ),
+    
+    'DEFAULT_MODEL_SERIALIZER_CLASS': (
+        'rest_framework.serializers.ModelSerializer',
+    ),
+    'DEFAULT_PARSER_CLASSES': (
+        'rest_framework.parsers.JSONParser',
+        'rest_framework.parsers.FormParser',
+        'rest_framework.parsers.MultiPartParser',
     ),
 }
 
