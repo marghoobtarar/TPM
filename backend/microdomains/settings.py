@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'social_django',
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
+    'rest_framework_swagger'
     
 ]
 
@@ -80,7 +81,7 @@ ROOT_URLCONF = 'microdomains.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'build')],
+        'DIRS': [os.path.join(BASE_DIR, 'documentation')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
