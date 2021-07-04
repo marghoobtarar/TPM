@@ -21,3 +21,60 @@ class FAQs(models.Model):
                                 null=False)
     answer = models.CharField(max_length=100,
                               null=False)
+
+class landingPAGE(models.Model):
+    heading1 = models.CharField(max_length=50,
+                                 null=True)
+    heading2 = models.CharField(max_length=50,
+                                  null=True)
+    heading3 = models.CharField(max_length=50,
+                                  null=True)
+    heading4 = models.CharField(max_length=50,
+                                  null=True)
+    heading5 = models.CharField(max_length=50,
+                                  null=True)
+    heading6 = models.CharField(max_length=50,
+                                  null=True)
+    heading7 = models.CharField(max_length=50,
+                                  null=True)
+    heading8 = models.CharField(max_length=50,
+                                  null=True)
+    heading9 = models.CharField(max_length=50,
+                                  null=True)
+    description1 = models.CharField(max_length=500,
+                                  null=True)
+    description2 = models.CharField(max_length=500,
+                                  null=True)
+    description3 = models.CharField(max_length=500,
+                                  null=True)
+    description4 = models.CharField(max_length=500,
+                                  null=True)
+    description5 = models.CharField(max_length=500,
+                                  null=True)
+    description6 = models.CharField(max_length=500,
+                                  null=True)
+    description7 = models.CharField(max_length=500,
+                                  null=True)
+    description8 = models.CharField(max_length=500,
+                                  null=True)
+    description9 = models.CharField(max_length=500,
+                                  null=True)
+    image1 = models.ImageField(upload_to = 'images',
+                                  null= True)
+    image2 = models.ImageField(upload_to  = 'images',
+                                  null= True)
+    image3 = models.ImageField(upload_to  = 'images',
+                                  null= True)
+    image4 = models.ImageField(upload_to  = 'images',
+                                 null= True)
+    image5 = models.ImageField(upload_to  = 'images',
+                                 null= True)
+    image6 = models.ImageField(upload_to  = 'images',
+                                 null= True)
+    image7 = models.ImageField(upload_to  = 'images',
+                                 null= True)
+    image8 = models.ImageField(upload_to  = 'images',
+                                 null= True)
+
+
+

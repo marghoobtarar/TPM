@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from user_app.serializers import ContactusSerializer, FaqsSerializer
-from user_app.models import Contact_us, FAQs
+from user_app.serializers import ContactusSerializer, FaqsSerializer, landingPAGESerializer
+from user_app.models import Contact_us, FAQs, landingPAGE
 from rest_framework import status
 from rest_framework.permissions import IsAdminUser
 
@@ -132,3 +132,31 @@ class ManageFaqs(APIView):
             return Response({'message': str(e)}, status=status.HTTP_404_NOT_FOUND)
         else:
             return Response({'message': 'delete data'}, status=status.HTTP_200_OK)
+class Landingpagedata(APIView):
+    def post(self, request):
+        serailizer = landingPAGE(data=request.data)
+        try:
+            if serailizer.is_valid():
+                serailizer.save()
+            else:
+                raise Exception("errors")
+
+        except Exception as e:
+                return Response({'message':serailizer.errors },
+                                   status=status.HTTP_404_NOT_FOUND)  
+        
+        else:
+            return Response({'Landing page data': serailizer.data }, status=status.HTTP_201_CREATED)
+    
+    def get(self, request):
+        try:
+            faqs = landingPAGE.objects.all()
+            serailizer = landingPAGESerializer(faqs, many=True)
+            if serailizer:
+                pass
+            else:
+                raise Exception('error')
+        except Exception as e:
+            return Response({'error message': str(e)}, status=status.HTTP_404_NOT_FOUND)
+        else:
+            return Response({'Landinfg page data':serailizer.data}, status=status.HTTP_200_OK)
