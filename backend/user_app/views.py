@@ -4,8 +4,8 @@ from rest_framework.response import Response
 from .serializers import ContactusSerializer
 from django.core.mail import send_mail,BadHeaderError
 from microdomains.settings import EMAIL_HOST_USER
-from .models import FAQs
-from .serializers import FaqsSerializer
+from .models import FAQs, landingPAGE
+from .serializers import FaqsSerializer, landingPAGESerializer
 from rest_framework import status
 # Create your views here.
 class Contact_us(APIView):
@@ -43,3 +43,16 @@ class Faqs(APIView):
             return Response({'error message': str(e)}, status=status.HTTP_404_NOT_FOUND)
         else:
             return Response({'data': serailizer.data}, status=status.HTTP_200_OK)
+class Landingpagedata(APIView):
+    def get(self, request):
+        try:
+            dataa = landingPAGE.objects.all()
+            serailizer = landingPAGESerializer(dataa, many=True)
+            if serailizer:
+                pass
+            else:
+                raise Exception('error')
+        except Exception as e:
+            return Response({'error message': str(e)}, status=status.HTTP_404_NOT_FOUND)
+        else:
+            return Response({'Landinfg page data':serailizer.data}, status=status.HTTP_200_OK)
