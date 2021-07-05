@@ -5,6 +5,7 @@ from user_app.serializers import ContactusSerializer, FaqsSerializer, landingPAG
 from user_app.models import Contact_us, FAQs, landingPAGE
 from rest_framework import status, generics
 from rest_framework.permissions import IsAdminUser
+from rest_framework.parsers import FileUploadParser
 
 
 class Contact(APIView):
@@ -135,10 +136,13 @@ class ManageFaqs(APIView):
 
 class Landingpagedata(generics.GenericAPIView):
     serializer_class = landingPAGESerializer
-    permission_classes = (IsAdminUser,) 
+    parser_classes = (FileUploadParser,)
+
+    # permission_classes = (IsAdminUser,) 
 
     def post(self, request , format=None):
-        serailizer = landingPAGE(data=request.data)
+        
+        serailizer = landingPAGESerializer(data=request.data)
         try:
             if serailizer.is_valid():
                 serailizer.save()

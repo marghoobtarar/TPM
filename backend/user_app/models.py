@@ -75,6 +75,5 @@ class landingPAGE(models.Model):
                                  null= True)
     image8 = models.ImageField(upload_to  = 'images',
                                  null= True)
-
-
-
+    def __unicode__(self):
+        return u"images {0}".format(self.image8.url)
