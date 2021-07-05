@@ -129,4 +129,5 @@ dmypy.json
 .pyre/
 
 node_modules/
+tmp/
 front-end_auth/node_modules/
