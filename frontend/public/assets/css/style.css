@@ -722,4 +722,51 @@ input.form-control:focus {
 /* ************services ********** */
 
 
+.product-services{
+  background-color: #d4d6d7 !important;
+  padding: 10px
+}
+.services{
+  margin: 0 3.4rem;
+}
+.dot-linee{
+  width: 90%;
+  height: 1px;
+  background-color: #a7acb3;
+  margin: 0 3.4rem;
+}
+.lets-talk{
+  margin: 2rem 3.4rem;
+}
+.cards{
+  margin: 0 -4.6rem;
+  margin-left: 50px;
+
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  background-color: #dddfe0 !important;
+  border: 1px solid #a7acb3;
+  color: rgba(250, 250, 250, 0.8);
+  margin-bottom: 2rem;
+  width: 90%;
+
+}
+.card-img-top{
+  padding: 10px;
+}
+.title {
+  padding: 10px;
+  background-color: #1d5377;
+  margin: 10px;
+}
+.card-text{
+  color: #565b61;
+  font-size: 15px;
+  text-align: left!important;
+}
+
+
 

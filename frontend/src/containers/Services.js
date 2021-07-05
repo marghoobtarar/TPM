@@ -24,8 +24,8 @@ const Services = () => {
                 little more about you.
               </p>
             </div>
-            <div className=" row container ">
-              <div class="col-lg-4 col-md-4 col-sm-12">
+            <div className=" row  ">
+              <div class="col-lg-4 col-md-6 col-sm-12 cards">
                 <div class="card">
                   <div class="title">
                     <p>
@@ -35,7 +35,7 @@ const Services = () => {
                     </p>
                   </div>
                   <img
-                    src="../Wixsite Akmal/Assets/images/service.1.webp"
+                    src={aboutus1}
                     class="card-img-top"
                     alt="..."
                   />
@@ -55,7 +55,7 @@ const Services = () => {
                   </div>
                 </div>
               </div>
-              <div class="col-lg-4 col-md-4 col-sm-12">
+              <div class="col-lg-4 col-md-6 col-sm-12 cards">
                 <div class="card">
                   <div class="title">
                     <p>
@@ -65,7 +65,7 @@ const Services = () => {
                     </p>
                   </div>
                   <img
-                    src="../Wixsite Akmal/Assets/images/service 2.webp"
+                    src={aboutus1}
                     class="card-img-top"
                     alt="..."
                   />
@@ -85,7 +85,7 @@ const Services = () => {
                   </div>
                 </div>
               </div>
-              <div class="col-lg-4 col-md-4 col-sm-12">
+              <div class="col-lg-4 col-md-6 col-sm-12 cards">
                 <div class="card">
                   <div class="title">
                     <p>
@@ -95,7 +95,7 @@ const Services = () => {
                     </p>
                   </div>
                   <img
-                    src="../Wixsite Akmal/Assets/images/service 3.webp "
+                    src={aboutus1}
                     class="card-img-top"
                     alt="..."
                   />

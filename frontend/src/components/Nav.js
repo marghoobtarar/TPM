@@ -55,11 +55,11 @@ const Nav = () => {
                     location === "/services" ? "active" : ""
                   } `}
                   href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
+                  // id="navbarDropdown"
+                  // role="button"
+                  // data-toggle="dropdown"
+                  // aria-haspopup="true"
+                  // aria-expanded="false"
                 >
                   Products and Services
                 </a>
