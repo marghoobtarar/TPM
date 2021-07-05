@@ -179,14 +179,14 @@ REST_FRAMEWORK = {
     #     'rest_framework.filters.OrderingFilter',
     # ),
     
-    'DEFAULT_MODEL_SERIALIZER_CLASS': (
-        'rest_framework.serializers.ModelSerializer',
-    ),
-    'DEFAULT_PARSER_CLASSES': (
-        'rest_framework.parsers.JSONParser',
+    # 'DEFAULT_MODEL_SERIALIZER_CLASS': (
+    #     'rest_framework.serializers.ModelSerializer',
+    # ),
+    'DEFAULT_PARSER_CLASSES': [
         'rest_framework.parsers.FormParser',
         'rest_framework.parsers.MultiPartParser',
-    ),
+        'rest_framework.parsers.JSONParser',
+    ]
 }
 
 AUTHENTICATION_BACKENDS = (
