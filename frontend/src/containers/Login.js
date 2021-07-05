@@ -3,10 +3,10 @@ import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { login, removeError } from "../actions/auth";
 import axios from "axios";
-import login_main_image from "../img/Icon/login.jpg";
+import login_main_image from "../img/login.jpg";
 import fb from "../img/Icon/fb-icon.png";
 import google from "../img/Icon/google-icon.png";
-import logo from "../img/logo.png";
+import logo from "../img/logo.jpg";
 const Login = ({
   login,
   removeError,
@@ -91,7 +91,7 @@ const Login = ({
 
   return (
     <React.Fragment>
-      <div className="container h-100" style={{ marginTop: "100px" }}>
+      <div className="container h-100" style={{ marginTop: "30px" }}>
         {redirection ? <Redirect to="/" /> : null}
         {resetPassword ? <Redirect to="/reset-password" /> : null}
         {signup_redirect ? <Redirect to="/signup" /> : null}
@@ -276,8 +276,9 @@ const Login = ({
                         Forgot Password?
                       </a>
                     </div>
-                    <div className="form-group">
+                    <div className="form-group btn_inline" >
                       <input
+                    
                         type="submit"
                         value="Login"
                         className="btn btn-info btn-lg btn-block login-btn "

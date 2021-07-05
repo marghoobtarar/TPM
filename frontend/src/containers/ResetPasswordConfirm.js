@@ -3,7 +3,7 @@ import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { reset_password_confirm } from "../actions/auth";
 import login_main_image from "../img/Icon/login.jpg";
-import logo from "../img/logo.png";
+import logo from "../img/logo.jpg";
 
 const ResetPasswordConfirm = ({ match, reset_password_confirm, isError }) => {
   const [requestSent, setRequestSent] = useState(false);
@@ -160,7 +160,7 @@ const ResetPasswordConfirm = ({ match, reset_password_confirm, isError }) => {
                       </div>
                     ) : null}
 
-                    <div className="form-group">
+                    <div className="form-group btn_inline">
                       <input
                         type="submit"
                         value="Reset Password"

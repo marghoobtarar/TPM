@@ -3,7 +3,7 @@ import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { reset_password } from "../actions/auth";
 import login_main_image from "../img/Icon/login.jpg";
-import logo from "../img/logo.png";
+import logo from "../img/logo.jpg";
 const ResetPassword = ({ reset_password, is_reset_password }) => {
   useEffect(() => {
     console.log("there is my reset password", is_reset_password);
@@ -119,7 +119,7 @@ const ResetPassword = ({ reset_password, is_reset_password }) => {
                     {/* <div>
                                         <p style={{fontSize:'10px',color:'green'}}>Make sure you provided the registered email address</p>
                                     </div> */}
-                    <div className="form-group mt-3">
+                    <div className="form-group mt-3 btn_inline">
                       <button
                         type="submit"
                         className="btn btn-info btn-lg btn-block login-btn "

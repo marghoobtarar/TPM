@@ -7,7 +7,7 @@ import axios from "axios";
 import login_main_image from "../img/Icon/login.jpg";
 import fb from "../img/Icon/fb-icon.png";
 import google from "../img/Icon/google-icon.png";
-import logo from "../img/logo.png";
+import logo from "../img/logo.jpg";
 // import '../build/css/demo.css'
 // import '../build/css/intlTelInput.css'
 // import '../build/js/intlTelInput'
@@ -440,7 +440,7 @@ const Signup = ({ signup, isAuthenticated, isError }) => {
                       </div>
                     ) : null}
 
-                    <div className="form-group">
+                    <div className="form-group btn_inline">
                       <button className="btn btn-info btn-lg btn-block login-btn ">
                         Sign Up
                       </button>

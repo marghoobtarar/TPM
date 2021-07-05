@@ -1,12 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 
-import "./css/ripple.min.css"
-import "./css/bootstrap.min.css"
-import "./css/style.css"
+// import "./css/style.css"
 // import './owlcarousel/owl.carousel.min.css'
-import './owlcarousel/owl.theme.default.min.css'
-import './css/mapstyle.css'
 
 import Home from './containers/Home';
 import Login from './containers/Login';
@@ -20,10 +16,11 @@ import Google from './containers/Google';
 import { Provider } from 'react-redux';
 import store from './store';
 
-import Layout from './hocs/Layout';
+import Layout from './hoc/Layout';
 import About from './containers/About';
 import Listing from './containers/Listing';
 import Contact from './containers/Contact';
+import Services from './containers/Services';
 
 const App = () => (
     <Provider store={store}>
@@ -39,7 +36,9 @@ const App = () => (
                     <Route exact path='/activate/:uid/:token' component={Activate} />
                     <Route exact path='/about' component={About} />
                     <Route exact path='/listing' component={Listing} />
-                    <Route exact path='/contact' component={Contact}/>
+                    <Route exact path='/contact-us' component={Contact}/>
+                    <Route exact path='/services' component={Services}/>
+
                     <Route exact path='/' component={Home} />
                     <Redirect to='/' component={Home}/>
 

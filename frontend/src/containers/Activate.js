@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { verify } from "../actions/auth";
 
 import login_main_image from "../img/Icon/login.jpg";
-import logo from "../img/logo.png";
+import logo from "../img/logo.jpg";
 const Activate = ({ verify, match }) => {
   const [verified, setVerified] = useState(false);
 
@@ -67,7 +67,7 @@ const Activate = ({ verify, match }) => {
                   </div>
 
                   <div
-                    className="form-group"
+                    className="form-group btn_inline"
                     style={{ marginTop: "90px", textAlign: "center" }}
                   >
                     <p style={{ textAlign: "center", marginTop: "5px" }}>
