@@ -1,28 +1,45 @@
 from django.db import models
 
 # Create your models here.
-class Contact_us(models.Model):
-    email = models.EmailField(max_length=50,
-                             null=False
-                            )
-    issue = models.CharField(max_length=250,
-                             null=False)
+
+class CommonInfo(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        abstract = True
+
+
+class ContactUsmodel(CommonInfo):
     name = models.CharField(max_length=250,
                              null=False
                             )
-    issue_resolved = models.BooleanField(default=False,
-                                         null= True)
+    email = models.EmailField(max_length=50,
+                             null=False
+                            )
+    subject = models.CharField(max_length=500,
+                             null=False)
+    
+    message = models.CharField(max_length=500,
+                             null=False)
 
     def __str__(self):
         return self.email
 
-class FAQs(models.Model):
-    question = models.CharField(max_length=100,
+
+
+class aboutUsmodel(CommonInfo):
+    heading = models.CharField(max_length=100,
                                 null=False)
-    answer = models.CharField(max_length=100,
+    description = models.CharField(max_length=1000,
                               null=False)
 
-class landingPAGE(models.Model):
+
+
+
+
+
+class landingPAGE(CommonInfo):
     heading1 = models.CharField(max_length=50,
                                  null=True)
     heading2 = models.CharField(max_length=50,
@@ -75,5 +92,4 @@ class landingPAGE(models.Model):
                                  null= True)
     image8 = models.ImageField(upload_to  = 'images',
                                  null= True)
-    def __unicode__(self):
-        return u"images {0}".format(self.image8.url)
+    

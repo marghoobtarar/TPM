@@ -1,20 +1,20 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from user_app.serializers import ContactusSerializer, FaqsSerializer, landingPAGESerializer
-from user_app.models import Contact_us, FAQs, landingPAGE
+from user_app.serializers import ContactUsSerializer, landingPAGESerializer, aboutUsSerializer
+from user_app.models import ContactUsmodel, landingPAGE, aboutUsmodel
 from rest_framework import status, generics
 from rest_framework.permissions import IsAdminUser
 from rest_framework.parsers import FileUploadParser
 
 
-class Contact(APIView):
+class ContactUs(APIView):
     
-    permission_classes = (IsAdminUser,) 
+    # permission_classes = (IsAdminUser,) 
     def get(self, request):
         try:
-            contact_us = Contact_us.objects.all()
-            serailizer = ContactusSerializer(contact_us, many=True)
+            contact_us = ContactUsmodel.objects.all()
+            serailizer = ContactUsSerializer(contact_us, many=True)
             if serailizer:
                 pass
             else:
@@ -25,12 +25,12 @@ class Contact(APIView):
             return Response({'data':serailizer.data})
 
 
-class ManageContact(APIView):
-    permission_classes = (IsAdminUser,) 
+class ManageContactUs(APIView):
+    # permission_classes = (IsAdminUser,) 
     def get(self, request, pk):
         try:
-            contact_us = Contact_us.objects.get(id=pk)
-            serailizer = ContactusSerializer(contact_us)
+            contact_us = ContactUsmodel.objects.get(id=pk)
+            serailizer = ContactUsSerializer(contact_us)
             if serailizer:
                 pass
             else:
@@ -42,8 +42,8 @@ class ManageContact(APIView):
 
     def put(self, request, pk):
         try:
-            contact_us = Contact_us.objects.get(pk=pk)
-            serailizer = ContactusSerializer(
+            contact_us = ContactUsmodel.objects.get(pk=pk)
+            serailizer = ContactUsSerializer(
                 data=request.data, instance=contact_us)
             if serailizer.is_valid():
                 serailizer.save()
@@ -56,16 +56,16 @@ class ManageContact(APIView):
 
     def delete(self, request, pk):
         try:
-            contact_us = Contact_us.objects.get(pk=pk)
+            contact_us = ContactUsmodel.objects.get(pk=pk)
             contact_us.delete()
         except Exception as e:
             return Response({'message': str(e)})
         else:
             return Response({'message': 'delete data'})
 
-class Faqs(APIView):
+class aboutUs(APIView):
     def post(self, request):
-        serailizer = FaqsSerializer(data=request.data)
+        serailizer = aboutUsSerializer(data=request.data)
         try:
             if serailizer.is_valid():
                 serailizer.save()
@@ -81,8 +81,8 @@ class Faqs(APIView):
     
     def get(self, request):
         try:
-            faqs = FAQs.objects.all()
-            serailizer = FaqsSerializer(faqs, many=True)
+            faqs = aboutUsmodel.objects.all()
+            serailizer = aboutUsSerializer(faqs, many=True)
             if serailizer:
                 pass
             else:
@@ -92,11 +92,11 @@ class Faqs(APIView):
         else:
             return Response({'data':serailizer.data}, status=status.HTTP_200_OK)
 
-class ManageFaqs(APIView):
+class ManageaboutUs(APIView):
     def get(self, request, pk):
         try:
-            faqs = FAQs.objects.get(id=pk)
-            serailizer = FaqsSerializer(faqs)
+            faqs = aboutUsmodel.objects.get(id=pk)
+            serailizer = aboutUsSerializer(faqs)
             if serailizer:
                 pass
             else:
@@ -111,8 +111,8 @@ class ManageFaqs(APIView):
 
     def put(self, request, pk):
         try:
-            faqs = FAQs.objects.get(pk=pk)
-            serailizer = FaqsSerializer(
+            faqs = aboutUsmodel.objects.get(pk=pk)
+            serailizer = aboutUsSerializer(
                 data=request.data, instance=faqs)
             if serailizer.is_valid():
                 serailizer.save()
@@ -127,17 +127,15 @@ class ManageFaqs(APIView):
 
     def delete(self, request, pk):
         try:
-            faqs = FAQs.objects.get(pk=pk)
+            faqs = aboutUsmodel.objects.get(pk=pk)
             faqs.delete()
         except Exception as e:
             return Response({'message': str(e)}, status=status.HTTP_404_NOT_FOUND)
         else:
             return Response({'message': 'delete data'}, status=status.HTTP_200_OK)
 
-class Landingpagedata(generics.GenericAPIView):
-    serializer_class = landingPAGESerializer
-    parser_classes = (FileUploadParser,)
-
+class Landingpagedata(APIView):
+    
     # permission_classes = (IsAdminUser,) 
 
     def post(self, request , format=None):

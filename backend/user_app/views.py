@@ -1,16 +1,15 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .serializers import ContactusSerializer
 from django.core.mail import send_mail,BadHeaderError
 from microdomains.settings import EMAIL_HOST_USER
-from .models import FAQs, landingPAGE
-from .serializers import FaqsSerializer, landingPAGESerializer
+from .models import *
+from .serializers import *
 from rest_framework import status
 # Create your views here.
-class Contact_us(APIView):
+class ContactUs(APIView):
     def post(self, request):
-        serailizer = ContactusSerializer(data=request.data)
+        serailizer = ContactUsSerializer(data=request.data)
         try:
                 if serailizer.is_valid():
                         serailizer.save()
@@ -21,7 +20,7 @@ class Contact_us(APIView):
                 return Response({'message':serailizer.errors})  
 
         else:
-                message = serailizer.data['issue']
+                message = serailizer.data['subject']
                 send_mail(
                         'Here’s the problem.',
                          message,
@@ -30,15 +29,15 @@ class Contact_us(APIView):
                         )
                 return Response({'message':'save data and send mail'})
 
-class Faqs(APIView):
+class aboutUs(APIView):
     def get(self, request):
         try:
-            faqs = FAQs.objects.all()
-            serailizer = FaqsSerializer(faqs, many=True)
+            dataa = aboutUsmodel.objects.all()
+            serailizer = aboutUsSerializer(dataa, many=True)
             if serailizer:
                 pass
             else:
-                raise Exception('error')
+                raise Exception(serailizer.errors)
         except Exception as e:
             return Response({'error message': str(e)}, status=status.HTTP_404_NOT_FOUND)
         else:
