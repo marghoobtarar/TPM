@@ -55,7 +55,7 @@ const Logout = ({ isAuthenticated, isError }) => {
         </div>
 
         <div class="m-t-40 text-center">
-          <p class="account-copyright">2021 © Aptillion</p>
+          <p class="account-copyright">2021 © TPM Solution</p>
         </div>
       </div>
     </div>

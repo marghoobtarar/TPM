@@ -56,7 +56,7 @@ const Home = ({ logout, isAuthenticated }) => {
                       class="rounded-circle"
                     />{" "}
                     <span class="ml-1">
-                      Aptillion <i class="mdi mdi-chevron-down"></i>{" "}
+                      TPM Solution<i class="mdi mdi-chevron-down"></i>{" "}
                     </span>
                   </a>
                   <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown">
@@ -86,7 +86,7 @@ const Home = ({ logout, isAuthenticated }) => {
                     <h4 class="page-title">Dashboard </h4>
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item active">
-                        Welcome to Aptillion admin panel !
+                        Welcome to TPM Solution admin panel !
                       </li>
                     </ol>
                   </div>

@@ -3,7 +3,7 @@ import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { login, removeError } from "../actions/auth";
 import login_main_image from "../img/Icon/login.jpg";
-import logo from "../img/logo.png";
+import logo from "../img/logo.jpg";
 const Login = ({ login, removeError, isAuthenticated, isError }) => {
   const [didSubmit, setDidSubmit] = useState(false);
   const [email_err, setEmailErr] = useState(false);
@@ -65,7 +65,7 @@ const Login = ({ login, removeError, isAuthenticated, isError }) => {
                 <h2 class="text-uppercase text-center pb-4">
                   <a href="index.html" class="text-success">
                     <span>
-                      <img src={logo} alt="" height="26" />
+                      <img src={logo} alt="" height="90" />
                     </span>
                   </a>
                 </h2>
@@ -178,10 +178,7 @@ const Login = ({ login, removeError, isAuthenticated, isError }) => {
                   <div class="form-group row text-center m-t-10">
                     <div class="col-12">
                       <button
-                        style={{
-                          background: "#042f54",
-                          borderColor: "#042f54",
-                        }}
+                       
                         class="btn btn-block btn-custom waves-effect waves-light"
                         type="submit"
                       >
@@ -202,7 +199,7 @@ const Login = ({ login, removeError, isAuthenticated, isError }) => {
         </div>
 
         <div class="m-t-40 text-center">
-          <p class="account-copyright">2021 © Aptillion</p>
+          <p class="account-copyright">2021 © TPM Solution</p>
         </div>
       </div>
     </div>

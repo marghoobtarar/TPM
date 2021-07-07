@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { logout } from "../actions/auth";
-import logo from "../img/logo.png";
+import logo from "../img/logo.jpg";
 
 const Sidebar = ({ logout, isAuthenticated }) => {
   const [redirect, setRedirect] = useState(false);
@@ -17,10 +17,10 @@ const Sidebar = ({ logout, isAuthenticated }) => {
         <div className="topbar-left">
           <a href="index.html" className="logo">
             <span>
-              <img src={logo} alt="" height="22" />
+              <img src={logo} alt="" height="60" />
             </span>
             <i>
-              <img src={logo} alt="" height="28" />
+              <img src={logo} alt="" height="70" />
             </i>
           </a>
         </div>
@@ -30,7 +30,7 @@ const Sidebar = ({ logout, isAuthenticated }) => {
                 <img src={logo} alt="user-img" title="Mat Helme" className="rounded-circle img-fluid"/>
             </div> */}
           <h5>
-            <a href="#">Aptillion</a>{" "}
+            <a href="#">TPM Solutions</a>{" "}
           </h5>
           <p className="text-muted">Admin Head</p>
         </div>
