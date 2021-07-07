@@ -2,19 +2,21 @@ from rest_framework import serializers
 from . models import *
 
 
-class ContactusSerializer(serializers.ModelSerializer):
+class ContactUsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Contact_us
+        model = ContactUsmodel
         fields = (
             'id',
-            'email',
-            'issue',
             'name',
-            'issue_resolved',
+            'email',
+            'subject', 
+            'message',
+            'created_at',
+            'updated_at',
             
         )
     def create(self, validated_data):
-        contact = Contact_us.objects.create(**validated_data)
+        contact = ContactUsmodel.objects.create(**validated_data)
         contact.save()
         return contact
 
@@ -26,14 +28,26 @@ class ContactusSerializer(serializers.ModelSerializer):
 
 
 
-class FaqsSerializer(serializers.ModelSerializer):
+class aboutUsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = FAQs
+        model = aboutUsmodel
         fields = (
             'id',
-            'question',
-            'answer',
+            'heading',
+            'description',
+            'created_at',
+            'updated_at',
         )
+    def create(self, validated_data):
+        contact = aboutUsmodel.objects.create(**validated_data)
+        contact.save()
+        return contact
+
+    def update(self, instance, validated_data):
+        for k, v in validated_data.items():
+            setattr(instance, k, v)
+            instance.save()
+        return instance
 
 class landingPAGESerializer(serializers.ModelSerializer):
     class Meta:
@@ -66,4 +80,6 @@ class landingPAGESerializer(serializers.ModelSerializer):
             'image6',
             'image7',
             'image8',
+            'created_at',
+            'updated_at',
         )
