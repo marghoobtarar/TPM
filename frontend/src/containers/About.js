@@ -1,9 +1,13 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { Link } from "react-router-dom";
 import aboutus1 from '../assets/images/aboutus1.webp'
 import aboutus2 from '../assets/images/aboutus2.webp'
 
 const About = () => {
+  useEffect(()=>{
+
+    //javascript here
+  },[])
   return (
     <>
       <section class="about-us" id="aboutdiv">
