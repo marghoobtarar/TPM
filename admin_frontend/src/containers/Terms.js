@@ -144,7 +144,7 @@ const Terms = ({ logout, isAuthenticated }) => {
                   >
                     <img src={avatar} alt="user" className="rounded-circle" />
                     <span className="ml-1">
-                      Aptillion <i className="mdi mdi-chevron-down"></i>{" "}
+                    TPM Solution <i className="mdi mdi-chevron-down"></i>{" "}
                     </span>
                   </a>
                   <div className="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown">
