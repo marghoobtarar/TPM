@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-class CommonInfo(models.Model):
+class CommonInfoInterface(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
 
@@ -10,7 +10,7 @@ class CommonInfo(models.Model):
         abstract = True
 
 
-class ContactUsmodel(CommonInfo):
+class ContactUsModel(CommonInfoInterface):
     name = models.CharField(max_length=250,
                              null=False
                             )
@@ -27,19 +27,14 @@ class ContactUsmodel(CommonInfo):
         return self.email
 
 
-
-class aboutUsmodel(CommonInfo):
+class AboutUsModel(CommonInfoInterface):
     heading = models.CharField(max_length=100,
                                 null=False)
     description = models.CharField(max_length=1000,
                               null=False)
 
 
-
-
-
-
-class landingPAGE(CommonInfo):
+class LandingPageModel(CommonInfoInterface):
     heading1 = models.CharField(max_length=50,
                                  null=True)
     heading2 = models.CharField(max_length=50,

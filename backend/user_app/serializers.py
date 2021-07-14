@@ -4,7 +4,7 @@ from . models import *
 
 class ContactUsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = ContactUsmodel
+        model = ContactUsModel
         fields = (
             'id',
             'name',
@@ -16,7 +16,7 @@ class ContactUsSerializer(serializers.ModelSerializer):
             
         )
     def create(self, validated_data):
-        contact = ContactUsmodel.objects.create(**validated_data)
+        contact = ContactUsModel.objects.create(**validated_data)
         contact.save()
         return contact
 
@@ -28,9 +28,9 @@ class ContactUsSerializer(serializers.ModelSerializer):
 
 
 
-class aboutUsSerializer(serializers.ModelSerializer):
+class AboutUsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = aboutUsmodel
+        model = AboutUsModel
         fields = (
             'id',
             'heading',
@@ -39,7 +39,7 @@ class aboutUsSerializer(serializers.ModelSerializer):
             'updated_at',
         )
     def create(self, validated_data):
-        contact = aboutUsmodel.objects.create(**validated_data)
+        contact = AboutUsModel.objects.create(**validated_data)
         contact.save()
         return contact
 
@@ -49,9 +49,9 @@ class aboutUsSerializer(serializers.ModelSerializer):
             instance.save()
         return instance
 
-class landingPAGESerializer(serializers.ModelSerializer):
+class LandingPageSerilizer(serializers.ModelSerializer):
     class Meta:
-        model = landingPAGE
+        model = LandingPageModel
         fields = (
             'id',
             'heading1',
@@ -83,3 +83,13 @@ class landingPAGESerializer(serializers.ModelSerializer):
             'created_at',
             'updated_at',
         )
+    def create(self, validated_data):
+        contact = LandingPageModel.objects.create(**validated_data)
+        contact.save()
+        return contact
+
+    def update(self, instance, validated_data):
+        for k, v in validated_data.items():
+            setattr(instance, k, v)
+            instance.save()
+        return instance

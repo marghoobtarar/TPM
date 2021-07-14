@@ -32,8 +32,8 @@ class ContactUs(APIView):
 class aboutUs(APIView):
     def get(self, request):
         try:
-            dataa = aboutUsmodel.objects.all()
-            serailizer = aboutUsSerializer(dataa, many=True)
+            dataa = AboutUsModel.objects.all()
+            serailizer = AboutUsSerializer(dataa, many=True)
             if serailizer:
                 pass
             else:
@@ -45,8 +45,8 @@ class aboutUs(APIView):
 class Landingpagedata(APIView):
     def get(self, request):
         try:
-            dataa = landingPAGE.objects.all()
-            serailizer = landingPAGESerializer(dataa, many=True)
+            dataa = LandingPageModel.objects.all()
+            serailizer = LandingPageSerilizer(dataa, many=True)
             if serailizer:
                 pass
             else:
