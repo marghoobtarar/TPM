@@ -46,6 +46,13 @@ const Sidebar = ({ logout, isAuthenticated }) => {
               </Link>
             </li>
             <li>
+              <Link to="/landing_page">
+                <a>
+                  <i className="dripicons-archive"></i> <span>Landing Page</span>{" "}
+                </a>
+              </Link>
+            </li>
+            <li>
               <Link to="/about_us">
                 <a>
                   <i className="fi-layers"></i> <span> About Us </span>
@@ -67,34 +74,34 @@ const Sidebar = ({ logout, isAuthenticated }) => {
               </Link>
             </li>
 
-            <li>
+            {/* <li>
               <Link to="/setting">
                 <a>
                   <i className="fi-cog"></i> <span>Settings</span>{" "}
                 </a>
               </Link>
-            </li>
-            <li>
+            </li> */}
+            {/* <li>
               <Link to="/blog">
                 <a>
                   <i className="dripicons-align-justify"></i> <span>Blogs</span>{" "}
                 </a>
               </Link>
-            </li>
-            <li>
+            </li> */}
+            {/* <li>
               <Link to="/data_methodology">
                 <a>
                   <i className="dripicons-archive"></i> <span>Data Methodology</span>{" "}
                 </a>
               </Link>
-            </li>
-            <li>
+            </li> */}
+            {/* <li>
               <Link to="/website_overview">
                 <a>
                   <i className="dripicons-device-desktop"></i> <span>Website Overview</span>{" "}
                 </a>
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link to="/faqs">
                 <a>

@@ -21,7 +21,7 @@ export default class ButtonLoader extends Component {
       <div style={{ marginTop: "10px" }}>
         <button className="button"
         style={{borderRadius:'5px',
-         background:'#042f54',
+         background:'#1d5377',
          color:'white'
         ,minWidth:'140px',
         maxWidth:'140px',

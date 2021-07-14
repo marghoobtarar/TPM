@@ -40,7 +40,12 @@ const Home = ({ isAuthenticated }) => {
                 needs. We’re committed to excelling at our job so you can focus
                 on doing yours.
               </p>
-              <button>READ MORE</button>
+              <button>
+                <Link style={{textDecoration:'none', color:'white'}} to='/about'>
+                READ MORE
+                </Link>
+                
+                </button>
             </div>
             <div class="col-lg-8 col-md-8 col-sm-12">
               <div class="exolot">

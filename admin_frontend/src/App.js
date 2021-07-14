@@ -18,7 +18,7 @@ import Privacy from './containers/Privacy';
 import Logout from './containers/Logout';
 import Setting from './containers/Setting';
 import Blog from './containers/blog/Blogs';
-import DataMethodology from './containers/DataMethodology';
+import LandingPage from './containers/LandingPage';
 import WebsiteOverview from './containers/WebsiteOverview';
 import Faq from './containers/Faq';
 import CreateFaq from './containers/CreateFaq';
@@ -34,6 +34,8 @@ const App = () => (
             <Layout>
                 <Switch>
                     <Route exact path='/' component={Login} />
+                    <Route exact path='/landing_page' component={LandingPage}/>
+
                     <Route exact path='/home' component={Home} />
                     <Route exact path='/about_us' component={AboutUs} />
                     <Route exact path='/terms' component={Terms} />
@@ -45,7 +47,6 @@ const App = () => (
                     <Route exact path='/blog_create' component={BlogCreate}/>
                     <Route exact path='/blog_edit/:value' component={BlogEdit}/>
                     
-                    <Route exact path='/data_methodology' component={DataMethodology}/>
                     <Route exact path='/website_overview' component={WebsiteOverview}/>
                     <Route exact path='/faqs' component={Faq}/>
                     <Route exact path='/create_faq' component={CreateFaq}/>
