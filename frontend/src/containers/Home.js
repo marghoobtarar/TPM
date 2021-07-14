@@ -16,6 +16,9 @@ const Home = ({ isAuthenticated }) => {
   const [redirect, setRedirect] = useState(isAuthenticated);
 
   useEffect(() => {
+
+
+    
     console.log(isAuthenticated);
     if (isAuthenticated) {
       setRedirect(true);
@@ -28,7 +31,7 @@ const Home = ({ isAuthenticated }) => {
       <section class="management-solution m-fadeIn" id="managementdiv">
         <div class="container">
           <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-12 managementdiv my-4">
+            <div class="col-lg-6 col-md-6 col-sm-12 managementdiv my-4">
               <h1>
                 Management solution for all your maintenance TMP activities
               </h1>
@@ -47,7 +50,7 @@ const Home = ({ isAuthenticated }) => {
                 
                 </button>
             </div>
-            <div class="col-lg-8 col-md-8 col-sm-12">
+            <div class="col-lg-6 col-md-6 col-sm-12">
               <div class="exolot">
                 <img
                   className='management_pic'
@@ -175,7 +178,7 @@ const Home = ({ isAuthenticated }) => {
           <div class="">
             <div className='row'> 
             <div class=" row ">
-              <div class="mobility2 border_right col-xs-12 col-sm-12 col-lg-4" >
+              <div class="mobility2 border_right col-xs-12 col-sm-12 col-lg-3" >
                 <div>
                   <h6>Mobility</h6>
                 </div>
@@ -200,9 +203,9 @@ const Home = ({ isAuthenticated }) => {
           </div>
           <div className='row cloud_computing_div m-fadeIn' >
             <div class=" row ">
-              <div class="mobility2  border_right col-xs-12 ccol-sm-12 col-lg-4" >
+              <div class="mobility2  border_right col-xs-12 ccol-sm-12 col-lg-3" >
                 <div>
-                  <h6 className='cloud-computing'>Cloud</h6>
+                  <h6 className='cloud-computing'>Cloud Computing</h6>
                 </div>
                 <div class="img-it2">
                   {" "}
@@ -226,7 +229,7 @@ const Home = ({ isAuthenticated }) => {
            
           <div className='row cloud_computing_div'>
             <div class=" row ">
-              <div class="mobility2 border_right col-xs-12 col-sm-12 col-lg-4" >
+              <div class="mobility2 border_right col-xs-12 col-sm-12 col-lg-3" >
                 <div>
                   <h6 className='cloud-computing' >Secutity</h6>
                 </div>
