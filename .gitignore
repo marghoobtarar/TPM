@@ -132,3 +132,8 @@ node_modules/
 tmp/
 front-end_auth/node_modules/
 images/
+backend/images/
+backend/db.sqlite3
+backend/**/migrations/**
+backend/user_app/migrations
+backend/accounts/migrations
