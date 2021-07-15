@@ -1,9 +1,8 @@
 import React from "react";
 import placeholder from "../img/placeholder.png";
 
-function ImageSelection() {
+function ImageSelection(props) {
   return (
-    <div>
       <div className="col-xs-12 col-sm-4">
         <div className="profile_holder">
           {props.urlImageExist ? (
@@ -47,7 +46,6 @@ function ImageSelection() {
             />
           </div>
         </div>
-      </div>
     </div>
   );
 }

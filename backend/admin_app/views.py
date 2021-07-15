@@ -65,16 +65,16 @@ class ManageContactUs(APIView):
 
 class aboutUs(APIView):
     def post(self, request):
-        serailizer = AboutUsSerializer(data=request.data)
         try:
-            
+            serailizer = AboutUsSerializer(data=request.data)
+
             if serailizer.is_valid():
                 serailizer.save()
             else:
                 raise Exception(serailizer.errors)
 
         except Exception as e:
-                return Response({'message':serailizer.errors },
+                return Response({'message':str(e) },
                                    status=status.HTTP_404_NOT_FOUND)  
         
         else:
@@ -153,10 +153,11 @@ class Landingpagedata(APIView):
                                    status=status.HTTP_404_NOT_FOUND)  
         
         else:
-            return Response({'Landing page data': serailizer.data }, status=status.HTTP_201_CREATED)
+            return Response({'data': serailizer.data }, status=status.HTTP_201_CREATED)
     
     def get(self, request):
         try:
+            print('this is getting data')
             dataa = LandingPageModel.objects.all()
             serailizer = LandingPageSerilizer(dataa, many=True)
             if serailizer:
@@ -166,7 +167,7 @@ class Landingpagedata(APIView):
         except Exception as e:
             return Response({'error message': str(e)}, status=status.HTTP_404_NOT_FOUND)
         else:
-            return Response({'Landinfg page data':serailizer.data}, status=status.HTTP_200_OK)
+            return Response({'data':serailizer.data}, status=status.HTTP_200_OK)
 
 class ManageLandingpagedata(APIView):
     def get(self, request, pk):
