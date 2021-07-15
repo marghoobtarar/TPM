@@ -88,3 +88,39 @@ class LandingPageModel(CommonInfoInterface):
     image8 = models.ImageField(upload_to  = 'images',
                                  null= True)
     
+
+TITLE_CHOICES = [
+    ('Gold', 'Gold'),
+    ('Platinum', 'Platinum'),
+    ('Silver', 'Silver'),
+]
+class TpmDashboardModel(CommonInfoInterface):
+    title = models.CharField(max_length=20,
+                              choices=TITLE_CHOICES)
+    desscription = models.CharField(max_length=500,
+                                  null=True)
+    price = models.FloatField()
+
+    def __str__(self):
+        return self.title
+
+
+class TemplatesModel(CommonInfoInterface):
+    title = models.CharField(max_length=20,
+                              choices=TITLE_CHOICES)
+    desscription = models.CharField(max_length=500,
+                                  null=False)
+    price = models.FloatField()
+
+    def __str__(self):
+        return self.title
+
+class ConsultancyModel(CommonInfoInterface):
+    title = models.CharField(max_length=20,
+                              choices=TITLE_CHOICES)
+    desscription = models.CharField(max_length=500,
+                                  null=False)
+    price = models.FloatField()
+
+    def __str__(self):
+        return self.title

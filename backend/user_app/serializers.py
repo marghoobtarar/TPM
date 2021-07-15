@@ -93,3 +93,56 @@ class LandingPageSerilizer(serializers.ModelSerializer):
             setattr(instance, k, v)
             instance.save()
         return instance
+
+
+class TpmDashboardSerilizer(serializers.ModelSerializer):
+    class Meta:
+        model = TpmDashboardModel
+        fields = (
+            "__all__"
+        )
+    def create(self, validated_data):
+        contact = TpmDashboardModel.objects.create(**validated_data)
+        contact.save()
+        return contact
+
+    def update(self, instance, validated_data):
+        for k, v in validated_data.items():
+            setattr(instance, k, v)
+            instance.save()
+        return instance
+
+class TemplatesSerilizer(serializers.ModelSerializer):
+    class Meta:
+        model = TemplatesModel
+        fields = (
+            "__all__"
+        )
+    def create(self, validated_data):
+        contact = TemplatesModel.objects.create(**validated_data)
+        contact.save()
+        return contact
+
+    def update(self, instance, validated_data):
+        for k, v in validated_data.items():
+            setattr(instance, k, v)
+            instance.save()
+        return instance
+
+
+class ConsultancySerilizer(serializers.ModelSerializer):
+    class Meta:
+        model = ConsultancyModel
+        fields = (
+            "__all__"
+        )
+    def create(self, validated_data):
+        contact = ConsultancyModel.objects.create(**validated_data)
+        contact.save()
+        return contact
+
+    def update(self, instance, validated_data):
+        for k, v in validated_data.items():
+            setattr(instance, k, v)
+            instance.save()
+        return instance

@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from user_app.serializers import *
-from user_app.models import *
+from user_app.serializers import LandingPageSerilizer, ContactUsSerializer, AboutUsSerializer,TpmDashboardSerilizer, TemplatesSerilizer, ConsultancySerilizer
+from user_app.models import ContactUsModel, AboutUsModel, LandingPageModel, TpmDashboardModel,TemplatesModel,ConsultancyModel
 from rest_framework import status, generics
 from rest_framework.permissions import IsAdminUser
 from rest_framework.parsers import FileUploadParser
@@ -209,3 +209,193 @@ class ManageLandingpagedata(APIView):
             return Response({'message': str(e)}, status=status.HTTP_404_NOT_FOUND)
         else:
             return Response({'message': 'delete data'}, status=status.HTTP_200_OK)
+
+class Tpmdashboard(APIView):
+    def post(self, request):
+        serailizer = TpmDashboardSerilizer(data=request.data)
+        try:
+            
+            if serailizer.is_valid():
+                serailizer.save()
+            else:
+                raise Exception(serailizer.errors)
+
+        except Exception as e:
+                return Response({'error_message':serailizer.errors },
+                                   status=status.HTTP_404_NOT_FOUND)  
+        
+        else:
+            return Response({'Data':serailizer.data}, status=status.HTTP_201_CREATED)
+    
+    def get(self, request):
+        try:
+            dataa = TpmDashboardModel.objects.all()
+            serailizer = TpmDashboardSerilizer(dataa, many=True)
+            if serailizer:
+                pass
+            else:
+                raise Exception(serailizer.errors)
+        except Exception as e:
+            return Response({'error message': str(e)}, status=status.HTTP_404_NOT_FOUND)
+        else:
+            return Response({'data':serailizer.data}, status=status.HTTP_200_OK)
+
+class ManageTpmdashboard(APIView):
+    def get(self, request, pk):
+        try:
+            dataa = TpmDashboardModel.objects.get(id=pk)
+            serailizer = TpmDashboardSerilizer(dataa)
+            if serailizer:
+                pass
+            else:
+                raise Exception(serailizer.errors)
+        except Exception as e:
+            return Response({'error message': str(e)}, 
+                            status=status.HTTP_404_NOT_FOUND)
+        else:
+            return Response({'message': 'Data', 'data': serailizer.data},
+                            status=status.HTTP_200_OK)
+
+
+    def put(self, request, pk):
+        try:
+            dataa = TpmDashboardModel.objects.get(pk=pk)
+            serailizer = TpmDashboardSerilizer(
+                data=request.data, instance=dataa)
+            if serailizer.is_valid():
+                serailizer.save()
+            else:
+                raise Exception(serailizer._errors)
+        except Exception as e:
+            return Response({'error message': str(e)},
+                             status=status.HTTP_404_NOT_FOUND)
+        else:
+            return Response({'message': 'update data', 'data': serailizer.data},
+                            status=status.HTTP_200_OK)
+
+
+class Templates(APIView):
+    def post(self, request):
+        serailizer = TemplatesSerilizer(data=request.data)
+        try:
+            
+            if serailizer.is_valid():
+                serailizer.save()
+            else:
+                raise Exception(serailizer.errors)
+
+        except Exception as e:
+                return Response({'error_message':serailizer.errors },
+                                   status=status.HTTP_404_NOT_FOUND)  
+        
+        else:
+            return Response({'Data':serailizer.data}, status=status.HTTP_201_CREATED)
+    
+    def get(self, request):
+        try:
+            dataa = TemplatesModel.objects.all()
+            serailizer = TemplatesSerilizer(dataa, many=True)
+            if serailizer:
+                pass
+            else:
+                raise Exception(serailizer.errors)
+        except Exception as e:
+            return Response({'error message': str(e)}, status=status.HTTP_404_NOT_FOUND)
+        else:
+            return Response({'data':serailizer.data}, status=status.HTTP_200_OK)
+
+class ManageTemplates(APIView):
+    def get(self, request, pk):
+        try:
+            dataa = TemplatesModel.objects.get(id=pk)
+            serailizer = TemplatesSerilizer(dataa)
+            if serailizer:
+                pass
+            else:
+                raise Exception(serailizer.errors)
+        except Exception as e:
+            return Response({'error message': str(e)}, 
+                            status=status.HTTP_404_NOT_FOUND)
+        else:
+            return Response({'message': 'Data', 'data': serailizer.data},
+                            status=status.HTTP_200_OK)
+
+
+    def put(self, request, pk):
+        try:
+            dataa = TemplatesModel.objects.get(pk=pk)
+            serailizer = TemplatesSerilizer(
+                data=request.data, instance=dataa)
+            if serailizer.is_valid():
+                serailizer.save()
+            else:
+                raise Exception(serailizer._errors)
+        except Exception as e:
+            return Response({'error message': str(e)},
+                             status=status.HTTP_404_NOT_FOUND)
+        else:
+            return Response({'message': 'update data', 'data': serailizer.data},
+                            status=status.HTTP_200_OK)
+
+class Consultancy(APIView):
+    def post(self, request):
+        serailizer = ConsultancySerilizer(data=request.data)
+        try:
+            
+            if serailizer.is_valid():
+                serailizer.save()
+            else:
+                raise Exception(serailizer.errors)
+
+        except Exception as e:
+                return Response({'error_message':serailizer.errors },
+                                   status=status.HTTP_404_NOT_FOUND)  
+        
+        else:
+            return Response({'Data':serailizer.data}, status=status.HTTP_201_CREATED)
+    
+    def get(self, request):
+        try:
+            dataa = ConsultancyModel.objects.all()
+            serailizer = ConsultancySerilizer(dataa, many=True)
+            if serailizer:
+                pass
+            else:
+                raise Exception(serailizer.errors)
+        except Exception as e:
+            return Response({'error message': str(e)}, status=status.HTTP_404_NOT_FOUND)
+        else:
+            return Response({'data':serailizer.data}, status=status.HTTP_200_OK)
+
+class ManageConsultancy(APIView):
+    def get(self, request, pk):
+        try:
+            dataa = ConsultancyModel.objects.get(id=pk)
+            serailizer = ConsultancySerilizer(dataa)
+            if serailizer:
+                pass
+            else:
+                raise Exception(serailizer.errors)
+        except Exception as e:
+            return Response({'error message': str(e)}, 
+                            status=status.HTTP_404_NOT_FOUND)
+        else:
+            return Response({'message': 'Data', 'data': serailizer.data},
+                            status=status.HTTP_200_OK)
+
+
+    def put(self, request, pk):
+        try:
+            dataa = ConsultancyModel.objects.get(pk=pk)
+            serailizer = ConsultancySerilizer(
+                data=request.data, instance=dataa)
+            if serailizer.is_valid():
+                serailizer.save()
+            else:
+                raise Exception(serailizer._errors)
+        except Exception as e:
+            return Response({'error message': str(e)},
+                             status=status.HTTP_404_NOT_FOUND)
+        else:
+            return Response({'message': 'update data', 'data': serailizer.data},
+                            status=status.HTTP_200_OK)

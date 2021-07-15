@@ -55,3 +55,45 @@ class Landingpagedata(APIView):
             return Response({'error message': str(e)}, status=status.HTTP_404_NOT_FOUND)
         else:
             return Response({'Landinfg page data':serailizer.data}, status=status.HTTP_200_OK)
+
+class Tpmdashboard(APIView):
+    def get(self, request):
+        try:
+            dataa = TpmDashboardModel.objects.all()
+            serailizer = TpmDashboardSerilizer(dataa, many=True)
+            if serailizer:
+                pass
+            else:
+                raise Exception(serailizer.errors)
+        except Exception as e:
+            return Response({'error message': str(e)}, status=status.HTTP_404_NOT_FOUND)
+        else:
+            return Response({'Data':serailizer.data}, status=status.HTTP_200_OK)
+
+class Templates(APIView):
+    def get(self, request):
+        try:
+            dataa = TemplatesModel.objects.all()
+            serailizer = TemplatesSerilizer(dataa, many=True)
+            if serailizer:
+                pass
+            else:
+                raise Exception(serailizer.errors)
+        except Exception as e:
+            return Response({'error message': str(e)}, status=status.HTTP_404_NOT_FOUND)
+        else:
+            return Response({'Data':serailizer.data}, status=status.HTTP_200_OK)
+
+class Consultancy(APIView):
+    def get(self, request):
+        try:
+            dataa = ConsultancyModel.objects.all()
+            serailizer = ConsultancySerilizer(dataa, many=True)
+            if serailizer:
+                pass
+            else:
+                raise Exception(serailizer.errors)
+        except Exception as e:
+            return Response({'error message': str(e)}, status=status.HTTP_404_NOT_FOUND)
+        else:
+            return Response({'Data':serailizer.data}, status=status.HTTP_200_OK)
