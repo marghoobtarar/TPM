@@ -32,6 +32,10 @@ class AboutUsModel(CommonInfoInterface):
                                 null=False)
     description = models.CharField(max_length=1000,
                               null=False)
+    image1 = models.ImageField(upload_to = 'images',
+                                  null= True)
+    image2 = models.ImageField(upload_to  = 'images',
+                                  null= True)
 
 
 class LandingPageModel(CommonInfoInterface):
@@ -51,8 +55,7 @@ class LandingPageModel(CommonInfoInterface):
                                   null=True)
     heading8 = models.CharField(max_length=50,
                                   null=True)
-    heading9 = models.CharField(max_length=50,
-                                  null=True)
+    
     description1 = models.CharField(max_length=500,
                                   null=True)
     description2 = models.CharField(max_length=500,
@@ -69,8 +72,7 @@ class LandingPageModel(CommonInfoInterface):
                                   null=True)
     description8 = models.CharField(max_length=500,
                                   null=True)
-    description9 = models.CharField(max_length=500,
-                                  null=True)
+    
     image1 = models.ImageField(upload_to = 'images',
                                   null= True)
     image2 = models.ImageField(upload_to  = 'images',

@@ -10,13 +10,13 @@ function Input(props) {
                 <input
                     onChange={(e) => props.updateData({e : e, err : props.error})}
                     style={
-                        props.heading1Error ? { border: "1px solid red" } : null
+                        props.headingError ? { border: "1px solid red" } : null
                     }
                     className="form-control"
                     type="text"
                     name={props.name}
                     id="heading1"
-                    value={props.heading1}
+                    value={props.value}
                     placeholder="Enter the title"
                 />
             </div>

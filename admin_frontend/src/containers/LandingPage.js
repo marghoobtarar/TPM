@@ -6,6 +6,7 @@ import placeholder from "../img/placeholder.png";
 import Input from "../components/Input";
 import CkEditor from "../components/CkEditor";
 import Topbar from "../components/Topbar";
+import ImageSelection from "../components/ImageSelection";
 
 const LandingPage = () => {
   const [data, setData] = useState({
@@ -45,75 +46,158 @@ const LandingPage = () => {
     descriptionError7: false,
     descriptionError8: false,
   });
-  const [heading1, setHeading1] = useState();
-  const [description1, setDescription1] = useState();
-  const [description2, setDescription2] = useState();
 
   const [id, setId] = useState("");
-  const [heading1Error, setHeading1Error] = useState(false);
-  const [descriptionError1, setDescriptionError1] = useState(false);
-  const [descriptionError2, setDescriptionError2] = useState(false);
-
   const [isLoading, setIsLoading] = useState(false);
+  
   const [urlImageExist, setUrlImageExist] = useState(false);
   const [urlImageExist2, setUrlImageExist2] = useState(false);
   const [urlImageExist3, setUrlImageExist3] = useState(false);
-
-  const [errorMessage, setErrorMessage] = useState("");
+  const [urlImageExist4, setUrlImageExist4] = useState(false);
+  const [urlImageExist5, setUrlImageExist5] = useState(false);
+  const [urlImageExist6, setUrlImageExist6] = useState(false);
+  const [urlImageExist7, setUrlImageExist7] = useState(false);
+  const [urlImageExist8, setUrlImageExist8] = useState(false);
+  
   const [image, setImage] = useState("");
   const [selectedImage, setSelecteImage] = useState("");
-
   const [image2, setImage2] = useState("");
   const [selectedImage2, setSelecteImage2] = useState("");
-
   const [image3, setImage3] = useState("");
   const [selectedImage3, setSelecteImage3] = useState("");
+  const [image4, setImage4] = useState("");
+  const [selectedImage4, setSelecteImage4] = useState("");
+  const [image5, setImage5] = useState("");
+  const [selectedImage5, setSelecteImage5] = useState("");
+  const [image6, setImage6] = useState("");
+  const [selectedImage6, setSelecteImage6] = useState("");
+  const [image7, setImage7] = useState("");
+  const [selectedImage7, setSelecteImage7] = useState("");
+  const [image8, setImage8] = useState("");
+  const [selectedImage8, setSelecteImage8] = useState("");
 
   useEffect(() => {
     axios({
       method: "GET",
-      url: `${process.env.REACT_APP_API_URL}/admin_app/data_methodology/`,
+      url: `${process.env.REACT_APP_API_URL}/admin_app/landing_page/`,
       headers: {
         Authorization: `Bearer ${localStorage.getItem("access")}`,
       },
     })
       .then((res) => {
+        console.log("res data is", res.data);
+
         return res.data;
+
       })
       .then((res) => {
-        console.log("res data is", res.data);
+
+        
         if (res.data && res.data.length > 0) {
           let data = res.data;
-          setHeading1(data[0].heading1);
-          setDescription1(data[0].description1);
-          setDescription2(data[0].description2);
+          console.log("res data is", data);
+
+
+          setData({
+            heading1: data[0].heading1,
+            heading2: data[0].heading2,
+            heading3: data[0].heading3,
+            heading4: data[0].heading4,
+            heading5: data[0].heading5,
+            heading6: data[0].heading6,
+            heading7: data[0].heading7,
+            heading8: data[0].heading8,
+        
+            headingError1: false,
+            headingError2: false,
+            headingError3: false,
+            headingError4: false,
+            headingError5: false,
+            headingError6: false,
+            headingError7: false,
+            headingError8: false,
+        
+            description1: data[0].description1,
+            description2: data[0].description2,
+            description3: data[0].description3,
+            description4: data[0].description4,
+            description5: data[0].description5,
+            description6: data[0].description6,
+            description7: data[0].description7,
+            description8: data[0].description8,
+        
+            descriptionError1: false,
+            descriptionError2: false,
+            descriptionError3: false,
+            descriptionError4: false,
+            descriptionError5: false,
+            descriptionError6: false,
+            descriptionError7: false,
+            descriptionError8: false,
+          })
+
           setId(data[0].id);
-          if (data[0].picture !== null && data[0].picture !== undefined) {
+// **************** setting images ******************
+          if (data[0].image1 !== null && data[0].image1 !== undefined) {
             setUrlImageExist(true);
-            setImage(process.env.REACT_APP_API_URL + "/" + data[0].picture);
+            setImage(process.env.REACT_APP_API_URL + "/" + data[0].image1);
           } else {
             setUrlImageExist(false);
           }
-          if (data[0].picture2 !== null && data[0].picture2 !== undefined) {
+          if (data[0].image2 !== null && data[0].image2 !== undefined) {
             setUrlImageExist2(true);
-            setImage2(process.env.REACT_APP_API_URL + "/" + data[0].picture2);
+            setImage2(process.env.REACT_APP_API_URL + "/" + data[0].image2);
           } else {
             setUrlImageExist2(false);
           }
-          if (data[0].picture3 !== null && data[0].picture3 !== undefined) {
+          if (data[0].image3 !== null && data[0].image3 !== undefined) {
             setUrlImageExist3(true);
-            setImage3(process.env.REACT_APP_API_URL + "/" + data[0].picture3);
+            setImage3(process.env.REACT_APP_API_URL + "/" + data[0].image3);
           } else {
             setUrlImageExist3(false);
           }
+
+          if (data[0].image4 !== null && data[0].image4 !== undefined) {
+            setUrlImageExist4(true);
+            setImage4(process.env.REACT_APP_API_URL + "/" + data[0].image4);
+          } else {
+            setUrlImageExist4(false);
+          }
+          if (data[0].image5 !== null && data[0].image5 !== undefined) {
+            setUrlImageExist5(true);
+            setImage5(process.env.REACT_APP_API_URL + "/" + data[0].image5);
+          } else {
+            setUrlImageExist5(false);
+          }
+          if (data[0].image6 !== null && data[0].image6 !== undefined) {
+            setUrlImageExist6(true);
+            setImage6(process.env.REACT_APP_API_URL + "/" + data[0].image6);
+          } else {
+            setUrlImageExist6(false);
+          }
+
+          if (data[0].image7 !== null && data[0].image7 !== undefined) {
+            setUrlImageExist7(true);
+            setImage7(process.env.REACT_APP_API_URL + "/" + data[0].image7);
+          } else {
+            setUrlImageExist7(false);
+          }
+          if (data[0].image8 !== null && data[0].image8 !== undefined) {
+            setUrlImageExist8(true);
+            setImage8(process.env.REACT_APP_API_URL + "/" + data[0].image8);
+          } else {
+            setUrlImageExist8(false);
+          }
+
         }
       })
       .catch((err) => {
-        // console.log(e);
-        //   alert(err)
+        console.log(err.response);
+          alert(err.response)
       });
   }, []);
 
+// *************** update input heading fields ***********
   const updateData = (e) => {
     const { name, value } = e.e.target;
     setData((prevState) => ({
@@ -125,6 +209,8 @@ const LandingPage = () => {
       [e.err]: false,
     }));
   };
+  // *************** update editor description fields ***********
+
   const updateDataDescription = (e) => {
     setData((prevState) => ({
       ...prevState,
@@ -136,12 +222,16 @@ const LandingPage = () => {
       [e.err]: false,
     }));
   };
+  // *************** set errors ***********
+
   const setErrors = (name) => {
     setData((prevState) => ({
       ...prevState,
       [name]: true,
     }));
   };
+
+  // *************** error handling if any field is empty ***********
 
   const conditionsChecking = (e) => {
     if (data.heading1 === "" || !data.heading1) {
@@ -196,43 +286,65 @@ const LandingPage = () => {
       return true;
     }
   };
+// *************** submit the data ***********
 
   const onsubmit = (e) => {
-    console.log(data.heading1, data.description2, data.description1);
-    e.preventDefault();
-    console.log("submitting the form");
 
+    e.preventDefault();
     if (conditionsChecking()) {
       setIsLoading(true);
 
       var method = "PUT";
-      var url = `manage_data_methodology/${id}`;
+      var url = `manage_landing_page/${id}`;
       if (id === "") {
         method = "POST";
-        url = "data_methodology";
+        url = "landing_page";
       }
       e.preventDefault();
       var formdata = new FormData();
       formdata.append("heading1", data.heading1);
+      formdata.append("heading2", data.heading2);
+      formdata.append("heading3", data.heading3);
+      formdata.append("heading4", data.heading4);
+      formdata.append("heading5", data.heading5);
+      formdata.append("heading6", data.heading6);
+      formdata.append("heading7", data.heading7);
+      formdata.append("heading8", data.heading8);
+
       formdata.append("description1", data.description1);
       formdata.append("description2", data.description2);
+
+      formdata.append("description3", data.description3);
+      formdata.append("description4", data.description4);
+      formdata.append("description5", data.description5);
+      formdata.append("description6", data.description6);
+      formdata.append("description7", data.description7);
+      formdata.append("description8", data.description8);
+
       if (selectedImage !== "") {
         console.log("check image", selectedImage);
 
-        formdata.append("picture", selectedImage);
+        formdata.append("image1", selectedImage);
       }
       if (selectedImage2 !== "") {
-        formdata.append("picture2", selectedImage2);
+        formdata.append("image2", selectedImage2);
       }
       if (selectedImage3 !== "") {
-        formdata.append("picture3", selectedImage3);
+        formdata.append("image3", selectedImage3);
       }
 
-      // var data = {
-      //   heading1: data.heading1,
-      //   description1: data.description1,
-      //   description2: data.description2,
-      // };
+      if (selectedImage3 !== "") {
+        formdata.append("image4", selectedImage4);
+      }if (selectedImage3 !== "") {
+        formdata.append("image5", selectedImage5);
+      }if (selectedImage3 !== "") {
+        formdata.append("image6", selectedImage6);
+      }if (selectedImage3 !== "") {
+        formdata.append("image7", selectedImage7);
+      }if (selectedImage3 !== "") {
+        formdata.append("image8", selectedImage8);
+      }
+
       axios({
         method: method,
         url: `${process.env.REACT_APP_API_URL}/admin_app/${url}/`,
@@ -251,6 +363,9 @@ const LandingPage = () => {
         });
     }
   };
+
+  // *************** images selection ***********
+
   const imageSelector = (e) => {
     console.log(e.target.files[0]);
     if (e.target.files[0]) {
@@ -273,6 +388,42 @@ const LandingPage = () => {
       setSelecteImage3(e.target.files[0]);
     }
   };
+  const imageSelector4 = (e) => {
+    if (e.target.files[0]) {
+      setImage4(URL.createObjectURL(e.target.files[0]));
+      setUrlImageExist4(true);
+      setSelecteImage4(e.target.files[0]);
+    }
+  };
+  const imageSelector5 = (e) => {
+    if (e.target.files[0]) {
+      setImage5(URL.createObjectURL(e.target.files[0]));
+      setUrlImageExist5(true);
+      setSelecteImage5(e.target.files[0]);
+    }
+  };
+  const imageSelector6 = (e) => {
+    if (e.target.files[0]) {
+      setImage6(URL.createObjectURL(e.target.files[0]));
+      setUrlImageExist6(true);
+      setSelecteImage6(e.target.files[0]);
+    }
+  };
+  const imageSelector7 = (e) => {
+    if (e.target.files[0]) {
+      setImage7(URL.createObjectURL(e.target.files[0]));
+      setUrlImageExist7(true);
+      setSelecteImage7(e.target.files[0]);
+    }
+  };
+  const imageSelector8 = (e) => {
+    if (e.target.files[0]) {
+      setImage8(URL.createObjectURL(e.target.files[0]));
+      setUrlImageExist8(true);
+      setSelecteImage8(e.target.files[0]);
+    }
+  };
+
   return (
     <div className="">
       {/* {redirect ? <Redirect to="/logout" /> : null} */}
@@ -280,7 +431,7 @@ const LandingPage = () => {
       <div id="wrapper">
         <Sidebar />
         <div className="content-page">
-          <Topbar link_to="/" current_page="Landing Page" />
+          <Topbar link_to="/" current_page="Landing" />
 
           <div className="content">
             <div className="container-fluid">
@@ -301,12 +452,30 @@ const LandingPage = () => {
                         label={"Description1"}
                         descriptionError={data.descriptionError1}
                         description={data.description1}
-                        // setDescription = {e=>setDescription1(e)}
-                        setDescriptionError={(e) => setDescriptionError1(false)}
                         descriptionErrorName="descriptionError1"
                         name="description1"
                         updateDataDescription={(e) => updateDataDescription(e)}
                       />
+                       <div className="form-group m-b-20 row">
+                        <div className="col-12">
+                          <div className="row" style={{ marginTop: "30px" }}>
+                            <ImageSelection
+                            urlImageExist = {urlImageExist}
+                            image = {image}
+                            imageSelector = {e => imageSelector(e)}
+
+                            />
+                             <ImageSelection
+                            urlImageExist = {urlImageExist2}
+                            image = {image2}
+                            imageSelector = {e => imageSelector2(e)}
+
+                            />
+
+
+                           </div>
+                        </div>
+                      </div>
 
                       <Input
                         updateData={(e) => updateData(e)}
@@ -325,6 +494,20 @@ const LandingPage = () => {
                         name="description2"
                         updateDataDescription={(e) => updateDataDescription(e)}
                       />
+                      
+                      <div className="form-group m-b-20 row">
+                        <div className="col-12">
+                          <div className="row" style={{ marginTop: "30px" }}>
+                            <ImageSelection
+                            urlImageExist = {urlImageExist3}
+                            image = {image3}
+                            imageSelector = {e => imageSelector3(e)}
+
+                            />
+                          
+                           </div>
+                        </div>
+                      </div>
 
                       <Input
                         updateData={(e) => updateData(e)}
@@ -343,6 +526,20 @@ const LandingPage = () => {
                         name="description3"
                         updateDataDescription={(e) => updateDataDescription(e)}
                       />
+                    <div className="form-group m-b-20 row">
+                        <div className="col-12">
+                          <div className="row" style={{ marginTop: "30px" }}>
+                            <ImageSelection
+                            urlImageExist = {urlImageExist4}
+                            image = {image4}
+                            imageSelector = {e => imageSelector4(e)}
+
+                            />
+                          
+                           </div>
+                        </div>
+                      </div>
+
                       <Input
                         updateData={(e) => updateData(e)}
                         value={data.heading4}
@@ -359,7 +556,21 @@ const LandingPage = () => {
                         descriptionErrorName="descriptionError4"
                         name="description4"
                         updateDataDescription={(e) => updateDataDescription(e)}
-                      />     
+                      />   
+
+                       <div className="form-group m-b-20 row">
+                        <div className="col-12">
+                          <div className="row" style={{ marginTop: "30px" }}>
+                            <ImageSelection
+                            urlImageExist = {urlImageExist5}
+                            image = {image5}
+                            imageSelector = {e => imageSelector5(e)}
+
+                            />
+                          
+                           </div>
+                        </div>
+                      </div>  
                   <Input
                         updateData={(e) => updateData(e)}
                         value={data.heading5}
@@ -378,7 +589,7 @@ const LandingPage = () => {
                         updateDataDescription={(e) => updateDataDescription(e)}
                       />
 
-<Input
+                  <Input
                         updateData={(e) => updateData(e)}
                         value={data.heading6}
                         headingError={data.headingError6}
@@ -395,6 +606,19 @@ const LandingPage = () => {
                         name="description6"
                         updateDataDescription={(e) => updateDataDescription(e)}
                       />
+                       <div className="form-group m-b-20 row">
+                        <div className="col-12">
+                          <div className="row" style={{ marginTop: "30px" }}>
+                            <ImageSelection
+                            urlImageExist = {urlImageExist6}
+                            image = {image6}
+                            imageSelector = {e => imageSelector6(e)}
+
+                            />
+                          
+                           </div>
+                        </div>
+                      </div>
                     <Input
                         updateData={(e) => updateData(e)}
                         value={data.heading7}
@@ -412,6 +636,19 @@ const LandingPage = () => {
                         name="description7"
                         updateDataDescription={(e) => updateDataDescription(e)}
                       />
+                       <div className="form-group m-b-20 row">
+                        <div className="col-12">
+                          <div className="row" style={{ marginTop: "30px" }}>
+                            <ImageSelection
+                            urlImageExist = {urlImageExist7}
+                            image = {image7}
+                            imageSelector = {e => imageSelector7(e)}
+
+                            />
+                          
+                           </div>
+                        </div>
+                      </div>
 
                       <Input
                         updateData={(e) => updateData(e)}
@@ -430,197 +667,19 @@ const LandingPage = () => {
                         name="description8"
                         updateDataDescription={(e) => updateDataDescription(e)}
                       />
-                      <div className="col-xs-12 col-sm-4">
-                              <div className="profile_holder">
-                                {urlImageExist ? (
-                                  <img
-                                    style={{
-                                      width: "100%",
-                                      height: "350px",
-                                      borderRadius: "5px",
-                                    }}
-                                    src={`${image}`}
-                                    className="mr-auto ml-auto"
-                                    alt="image"
-                                  />
-                                ) : (
-                                  <img
-                                    style={{
-                                      width: "100%",
-                                      height: "350px",
-                                      borderRadius: "5px",
-                                    }}
-                                    src={placeholder}
-                                    className="mr-auto ml-auto"
-                                    alt="image"
-                                  />
-                                )}
-                              </div>
-                              <div
-                                className="profile_name mb-4"
-                                style={{
-                                  marginTop: "10px",
-                                  textAlign: "center",
-                                }}
-                              >
-                                <div className="upload-btn-wrapper">
-                                  <button className="btn">
-                                    Choose picture
-                                  </button>
-                                  <input
-                                    type="file"
-                                    name="myfile"
-                                    accept="image/*"
-                                    onChange={(e) => imageSelector(e)}
-                                  />
-                                </div>
-                              </div>
-                            </div>
-
+                     
                       <div className="form-group m-b-20 row">
                         <div className="col-12">
                           <div className="row" style={{ marginTop: "30px" }}>
-                            <div className="col-xs-12 col-sm-4">
-                              <div className="profile_holder">
-                                {urlImageExist ? (
-                                  <img
-                                    style={{
-                                      width: "100%",
-                                      height: "350px",
-                                      borderRadius: "5px",
-                                    }}
-                                    src={`${image}`}
-                                    className="mr-auto ml-auto"
-                                    alt="image"
-                                  />
-                                ) : (
-                                  <img
-                                    style={{
-                                      width: "100%",
-                                      height: "350px",
-                                      borderRadius: "5px",
-                                    }}
-                                    src={placeholder}
-                                    className="mr-auto ml-auto"
-                                    alt="image"
-                                  />
-                                )}
-                              </div>
-                              <div
-                                className="profile_name mb-4"
-                                style={{
-                                  marginTop: "10px",
-                                  textAlign: "center",
-                                }}
-                              >
-                                <div className="upload-btn-wrapper">
-                                  <button className="btn">
-                                    Choose picture
-                                  </button>
-                                  <input
-                                    type="file"
-                                    name="myfile"
-                                    accept="image/*"
-                                    onChange={(e) => imageSelector(e)}
-                                  />
-                                </div>
-                              </div>
-                            </div>
+                            <ImageSelection
+                            urlImageExist = {urlImageExist8}
+                            image = {image8}
+                            imageSelector = {e => imageSelector8(e)}
 
-                            <div className="col-xs-12 col-sm-4">
-                              <div className="profile_holder">
-                                {urlImageExist2 ? (
-                                  <img
-                                    style={{
-                                      width: "100%",
-                                      height: "350px",
-                                      borderRadius: "5px",
-                                    }}
-                                    src={`${image2}`}
-                                    className="mr-auto ml-auto"
-                                    alt="image"
-                                  />
-                                ) : (
-                                  <img
-                                    style={{
-                                      width: "100%",
-                                      height: "350px",
-                                      borderRadius: "5px",
-                                    }}
-                                    src={placeholder}
-                                    className="mr-auto ml-auto"
-                                    alt="image"
-                                  />
-                                )}
-                              </div>
-                              <div
-                                className="profile_name mb-4"
-                                style={{
-                                  marginTop: "10px",
-                                  textAlign: "center",
-                                }}
-                              >
-                                <div className="upload-btn-wrapper">
-                                  <button className="btn">
-                                    Choose picture
-                                  </button>
-                                  <input
-                                    type="file"
-                                    name="myfile"
-                                    accept="image/*"
-                                    onChange={(e) => imageSelector2(e)}
-                                  />
-                                </div>
-                              </div>
-                            </div>
+                            />
 
-                            <div className="col-xs-12 col-sm-4">
-                              <div className="profile_holder">
-                                {urlImageExist3 ? (
-                                  <img
-                                    style={{
-                                      width: "100%",
-                                      height: "350px",
-                                      borderRadius: "5px",
-                                    }}
-                                    src={`${image3}`}
-                                    className="mr-auto ml-auto"
-                                    alt="image"
-                                  />
-                                ) : (
-                                  <img
-                                    style={{
-                                      width: "100%",
-                                      height: "350px",
-                                      borderRadius: "5px",
-                                    }}
-                                    src={placeholder}
-                                    className="mr-auto ml-auto"
-                                    alt="image"
-                                  />
-                                )}
-                              </div>
-                              <div
-                                className="profile_name mb-4"
-                                style={{
-                                  marginTop: "10px",
-                                  textAlign: "center",
-                                }}
-                              >
-                                <div className="upload-btn-wrapper">
-                                  <button className="btn">
-                                    Choose picture
-                                  </button>
-                                  <input
-                                    type="file"
-                                    name="myfile"
-                                    accept="image/*"
-                                    onChange={(e) => imageSelector3(e)}
-                                  />
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+
+                           </div>
                         </div>
                       </div>
 
