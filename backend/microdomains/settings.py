@@ -234,13 +234,13 @@ DJOSER = {
     }
 }
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '969209861237-aa8vob371l68gbcdr75r45e7snmufa8d.apps.googleusercontent.com'#'969209861237-gr3hl3lasda6rg3tim7jkac5ngg0iql0.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '61QAhiRllUj_XhhZg7nL4rnN' #'xDqwHZa9sFT9ydPz091G8PE5'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '*************-aa8vob371l68gbcdr75r45e7snmufa8d.apps.googleusercontent.com'#'969209861237-gr3hl3lasda6rg3tim7jkac5ngg0iql0.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '************XhhZg7nL4rnN' #'xDqwHZa9sFT9ydPz091G8PE5'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = ['https://www.googleapis.com/auth/userinfo.email', 'https://www.googleapis.com/auth/userinfo.profile', 'openid']
 SOCIAL_AUTH_GOOGLE_OAUTH2_EXTRA_DATA = ['first_name', 'last_name']
 
-SOCIAL_AUTH_FACEBOOK_KEY = '226470945905259'
-SOCIAL_AUTH_FACEBOOK_SECRET = '29e80e7adf4505d2ce9ac2a9998cd7f5'
+SOCIAL_AUTH_FACEBOOK_KEY = '*******945905259'
+SOCIAL_AUTH_FACEBOOK_SECRET = '*******df4505d2ce9ac2a9998cd7f5'
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
     'fields': 'email, first_name, last_name'
